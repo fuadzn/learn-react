@@ -5,6 +5,9 @@ import HelloWorld from "./HelloWorld.jsx";
 import Table from "../table/Table.jsx";
 import AlertButton from "../button/AlertButton.jsx";
 import MyButton from "../button/MyButton.jsx";
+import Toolbar from "../button/Toolbar.jsx";
+import SearchForm from "../form/SearchForm.jsx";
+import SayHelloForm from "../form/SayHelloForm.jsx";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -13,6 +16,14 @@ createRoot(document.getElementById("root")).render(
             <Table />
             <AlertButton text="Click Me!" message="Hello World" />
             <MyButton text="On Smash" onSmash={() => alert("Smash nihhh!!!")} />
+
+            <Toolbar onClick={(e) => {
+                e.stopPropagation()
+                alert('1')
+            }}/>
+
+            <SearchForm />
+            <SayHelloForm />
         </Container>
     </StrictMode>
 )
