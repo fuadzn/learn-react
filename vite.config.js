@@ -9,7 +9,8 @@ export default defineConfig({
       input: {
         main: 'index.html',
         hello_orld: 'hello-world.html',
-        todo_list: 'todolist.html'
+        todo_list: 'todolist.html',
+        contact: 'contact.html',        
       }
     }
   }
