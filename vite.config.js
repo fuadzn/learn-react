@@ -10,7 +10,8 @@ export default defineConfig({
         main: 'index.html',
         hello_orld: 'hello-world.html',
         todo_list: 'todolist.html',
-        contact: 'contact.html',        
+        contact: 'contact.html',
+        task: 'task.html',
       }
     }
   }
