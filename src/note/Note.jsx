@@ -1,0 +1,49 @@
+import { useState } from "react";
+
+export default function Note({ note, onChange, onDelete }) {
+    const [isEditing, setIsEditing] = useState(false)
+
+    let component;
+
+    function handleChangeText(e) {
+        const newNote = {
+            ...note,
+            text: e.target.value
+        }
+        onChange(newNote)
+    }
+
+    if (isEditing) {
+        component = (
+            <>
+                <input value={note.text} onChange={handleChangeText} />
+                <button onClick={() => setIsEditing(false)}> Save</button >
+            </>
+        )
+    } else {
+        component = (
+            <>
+                <p>{note.text}</p>
+                <button onClick={() => setIsEditing(true)}>Edit</button>
+            </>
+        )
+    }
+
+    function handleChangeDone(e) {
+        const newNote = {
+            ...note,
+            isDone: e.target.checked
+        }
+        onChange(newNote)
+    }
+
+    return (
+        <>
+            <label>
+                <input type="checkbox" checked={note.done} onChange={handleChangeDone} />
+                {component}
+                <button onClick={() => onDelete(note)}>Delete</button>
+            </label>
+        </>
+    )
+}
