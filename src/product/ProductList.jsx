@@ -16,14 +16,25 @@ export default function ProductList() {
 
     useEffect(() => {
         console.info('Call effect')
-        if (load) {
-            fetch("/products.json")
-                .then((response) => response.json())
-                .then((data) => setProducts(data));
+        // if (load) {
+        //     fetch("/products.json")
+        //         .then((response) => response.json())
+        //         .then((data) => setProducts(data));
+        // }
+
+        // return () => {
+        //     console.log("unmount");
+        // }
+
+        // Async
+        async function fetchProducts() {
+            const response = await fetch("/products.json")
+            const data = await response.json()
+            setProducts(data)
         }
 
-        return () => {
-            console.log("unmount");
+        if (load) {
+            fetchProducts()
         }
     }, [load])
 
